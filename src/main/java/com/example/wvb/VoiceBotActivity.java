@@ -47,6 +47,7 @@ public class VoiceBotActivity extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
+        webView.addJavascriptInterface(new MyAndroidJSBridge(VoiceBotActivity.this), "AndroidJSBridge");
         webView.loadUrl("https://talkfusion-dev-app.oriserve.com?isBotOpen=true&botName=" + botName + "&platform=android");
     }
 

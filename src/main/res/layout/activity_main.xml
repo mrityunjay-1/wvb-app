@@ -22,33 +22,30 @@
             android:text="Please select Bot Name"
             />
 
-        <Spinner
+<!--        <include layout="@layout/spinner_resource_file" />-->
+
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/botNameSpinner"
-            android:layout_marginBottom="20dp"
+            android:layout_height="match_parent"
+            android:shadowColor="@color/black"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/botNameEditText"
+            android:text="edtech"
+            android:textSize="25dp"
         />
 
-<!--        <EditText-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:shadowColor="@color/black"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:id="@+id/botEditText"-->
-<!--            android:textSize="25dp"-->
-<!--        />-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="* Note :- By default edtech bot will talk"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            />-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="* Note :- By default edtech bot will talk"
+            android:layout_marginBottom="10dp"
+            />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/callButton"
+            android:layout_marginTop="20dp"
             android:text="Call" />
 
     </LinearLayout>

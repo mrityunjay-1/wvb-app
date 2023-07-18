@@ -17,6 +17,7 @@ import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
 //    private static Button callButton;
     private static Spinner spinner;
+    private static Button callButton;
+//    private static final String[] bots = new String[]{"edtech", "tourism", "tesla"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,23 +39,21 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-
         // spinner work
-        spinner = findViewById(R.id.botNameSpinner);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,  R.layout.activity_main , new String[]{"edtech", "tourism", "tesla"});
-        spinner.setAdapter(arrayAdapter);
+//        spinner = findViewById(R.id.botNameSpinner);
+//        ArrayAdapter <String> arrayAdapter = new ArrayAdapter<String>(MainActivity.this,  android.R.layout.simple_spinner_item , bots);
+//        spinner.setAdapter(arrayAdapter);
 
+        callButton = findViewById(R.id.callButton);
 
-//        callButton = findViewById(R.id.callButton);
+        callButton.setOnClickListener((View view) -> {
+            EditText et = findViewById(R.id.botNameEditText);
+            String botName = et.getText().toString();
 
-//        callButton.setOnClickListener((View view) -> {
-//            EditText et = findViewById(R.id.botEditText);
-//            String botName = et.getText().toString();
-//
-//            Intent intent = new Intent(this, VoiceBotActivity.class);
-//            intent.putExtra("botName", botName);
-//            startActivity(intent);
-//        });
+            Intent intent = new Intent(this, VoiceBotActivity.class);
+            intent.putExtra("botName", botName);
+            startActivity(intent);
+        });
 
     }
 
@@ -65,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Log.d("Permission denied", "Permission denied for microphone");
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 1);
-
             }
         }
     }
